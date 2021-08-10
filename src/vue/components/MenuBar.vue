@@ -42,7 +42,6 @@
 
         &:hover {
             button {
-                transition: 100ms;
                 color: @textDim;
 
                 &:hover {

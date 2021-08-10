@@ -6,7 +6,10 @@ import ModalWindow from "./components/ModalWindow.vue";
 import FormCard from "./components/FormCard.vue";
 import DescribeContainer from "./components/DescribeContainer.vue";
 import GeneralButton from "./components/GeneralButton.vue";
+import StyleConfig from "./components/Config.less";
 import { App } from "vue";
+
+export { StyleConfig };
 
 export default class FluxUi {
     public app: App | null = null;

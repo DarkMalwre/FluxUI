@@ -58,8 +58,6 @@ export default class Main extends Vue {
 </script>
 
 <style lang="less">
-@import "./components/Config";
-
 ._root {
     width: 100vw;
     height: 100vh;
