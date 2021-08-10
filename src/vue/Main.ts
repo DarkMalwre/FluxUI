@@ -7,6 +7,7 @@ import FormCard from "./components/FormCard.vue";
 import DescribeContainer from "./components/DescribeContainer.vue";
 import GeneralButton from "./components/GeneralButton.vue";
 import StyleConfig from "./components/Config.less";
+import MsIcon from "./components/MsIcon.vue";
 import { App } from "vue";
 
 export { StyleConfig };
