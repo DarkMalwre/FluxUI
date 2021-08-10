@@ -73,6 +73,7 @@ export default class TitleBar extends Vue {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row;
 
     .title {
         color: @text;
@@ -92,24 +93,35 @@ export default class TitleBar extends Vue {
         }
     }
 
-    .buttons button {
-        -webkit-app-region: no-drag;
-        height: 30px;
-        padding: 0 18px;
-        border: none;
-        color: @textDim;
-        background: transparent;
-        transition: 300ms;
-        cursor: pointer;
-
-        &:hover {
-            background: @layer1;
+    .buttons {
+        button {
+            -webkit-app-region: no-drag;
+            height: 30px;
+            padding: 0 18px;
+            border: none;
             color: @text;
-            transition: 100ms;
+            background: transparent;
+            transition: 300ms;
+            cursor: pointer;
+
+            &:hover {
+                background: @layer1;
+                transition: 100ms;
+            }
+
+            .ms-Icon {
+                transform: scale(0.7);
+            }
         }
 
-        .ms-Icon {
-            transform: scale(0.7);
+        &:hover {
+            button {
+                color: @textDim;
+
+                &:hover {
+                    color: @text;
+                }
+            }
         }
     }
 }

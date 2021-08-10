@@ -15,6 +15,13 @@
                     type="text" v-if="input.type == 'text'" 
                 />
             </label>
+
+            <div class="link" v-for="link in links">
+                <div class="label" v-if="link.label">{{ link.label }}</div>
+
+                <a :href="link.href ? link.href : ''" v-if="link.remote">{{ link.linkText }}</a>
+                <router-link :to="link.href ? link.href : ''" v-if="!link.remote">{{ link.linkText }}</router-link>
+            </div>
         </form>
 
         <div class="footer">
@@ -27,7 +34,7 @@
 import { Vue, Options } from "vue-class-component";
 
 @Options({
-  props: [ "title", "inputs" ],
+  props: [ "title", "inputs", "links" ],
 })
 export default class FormCard extends Vue {}
 </script>
@@ -36,8 +43,9 @@ export default class FormCard extends Vue {}
 @import "./Config";
 
 .root {
-    width: 100vw;
-    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 
     .header {
         padding: 10px 10px 0 10px;
@@ -52,12 +60,7 @@ export default class FormCard extends Vue {}
         }
     }
 
-    .body label {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 10px;
-
+    .body {
         * {
             font-family: @mainFont;
             color: @text;
@@ -69,30 +72,48 @@ export default class FormCard extends Vue {}
             }
         }
 
-        .error {
-            color: @error;
-            overflow: hidden;
-            height: 24px;
+        .link {
+            display: flex;
+            flex-direction: row;
+            margin: 10px 5px 10px 10px;
 
-            &.hide {
-                opacity: 0;
-                height: 0;
+            div {
+                margin-right: 5px;
+                color: @textDim;
             }
         }
 
-        .text {
-            border: none;
-            border-bottom: 1px solid @medium;
-            background: @layer2;
-            padding: 8px;
-            border-radius: 3px;
+        label {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 10px;
 
-            &:focus {
-                border-color: @accent;
+            .error {
+                color: @error;
+                overflow: hidden;
+                height: 24px;
+
+                &.hide {
+                    opacity: 0;
+                    height: 0;
+                }
             }
 
-            &.has-error {
-                border-color: @error;
+            .text {
+                border: none;
+                border-bottom: 2px solid @medium;
+                background: @layer2;
+                padding: 8px;
+                border-radius: 3px;
+
+                &:focus {
+                    border-color: @accent;
+                }
+
+                &.has-error {
+                    border-color: @error;
+                }
             }
         }
     }

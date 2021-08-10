@@ -18,6 +18,9 @@
     min-width: 100px;
     transition: 300ms;
     font-family: @mainFont;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
         transition: 100ms;
@@ -27,10 +30,6 @@
     &.mode-primary {
         background: @accent;
         color: @layer0;
-    }
-
-    &.size-fill {
-        width: 100%;
     }
 }
 </style>

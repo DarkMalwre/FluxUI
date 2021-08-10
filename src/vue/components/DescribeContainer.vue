@@ -25,7 +25,7 @@ export default class DescribeContainer extends Vue {}
 @import "./Config";
 
 .root {
-    max-width: 400px;
+    width: 100%;
 
     .header {
         padding: 10px;
@@ -42,10 +42,6 @@ export default class DescribeContainer extends Vue {}
             color: @textDim;
             font-family: @mainFont;
         }
-    }
-
-    .body {
-        max-width: 400px;
     }
 }
 </style>
