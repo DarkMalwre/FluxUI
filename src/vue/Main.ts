@@ -33,5 +33,6 @@ export default class FluxUi {
         this.app!.component("ModalWindow", ModalWindow);
         this.app!.component("FormCard", FormCard);
         this.app!.component("DescribeContainer", DescribeContainer);
+        this.app!.component("MsIcon", MsIcon);
     }
 }
