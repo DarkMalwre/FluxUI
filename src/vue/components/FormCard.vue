@@ -36,7 +36,9 @@ import { Vue, Options } from "vue-class-component";
 @Options({
   props: [ "title", "inputs", "links" ],
 })
-export default class FormCard extends Vue {}
+export default class FormCard extends Vue {
+    
+}
 </script>
 
 <style lang="less" scoped>
@@ -102,7 +104,7 @@ export default class FormCard extends Vue {}
 
             .text {
                 border: none;
-                border-bottom: 2px solid @medium;
+                border-bottom: 2px solid transparent;
                 background: @layer2;
                 padding: 8px;
                 border-radius: 3px;
