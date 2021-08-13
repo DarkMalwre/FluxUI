@@ -3,8 +3,6 @@
         <title-bar />
         <menu-bar />
 
-        
-        
         <describe-container description="lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet" title="Test Form">
             <form-card title="Sign In" :inputs="[
                 {
@@ -58,11 +56,15 @@ export default class Main extends Vue {
 </script>
 
 <style lang="less">
+@import "./components/Colors";
+@import "./components/Config";
+
 ._root {
     width: 100vw;
     height: 100vh;
     overflow: auto;
     display: flex;
     flex-direction: column;
+    background: @layer1;
 }
 </style>

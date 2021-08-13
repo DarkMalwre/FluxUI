@@ -14,7 +14,7 @@
 @import "./Config";
 
 .root {
-    background: @layer0;
+    background: @layer2;
     height: 35px;
     width: 100%;
     display: flex;

@@ -69,7 +69,7 @@ export default class TitleBar extends Vue {
     width: 100%;
     height: 30px;
     -webkit-app-region: drag;
-    background: @layer0;
+    background: @layer1;
     display: flex;
     justify-content: space-between;
     align-items: center;
