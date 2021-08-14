@@ -8,7 +8,7 @@
 @import "./Config";
 
 .root {
-    border: none;
+    border: 1px solid @contrastBorder;
     background: @layer2;
     color: @text;
     border-radius: 3px;
@@ -20,6 +20,7 @@
     font-family: @mainFont;
     display: flex;
     align-items: center;
+    box-shadow: 0 1px 5px @contrastBorder;
     justify-content: center;
 
     &:hover {
@@ -30,6 +31,8 @@
     &.mode-primary {
         background: @accent;
         color: @layer0;
+        box-shadow: none;
+        border: none;
     }
 }
 </style>

@@ -9,6 +9,7 @@ import GeneralButton from "./components/GeneralButton.vue";
 import StyleConfig from "./components/Config.less";
 import MsIcon from "./components/MsIcon.vue";
 import TextInput from "./components/TextInput.vue";
+import MenuBarButton from "./components/MenuBarButton.vue";
 import { App } from "vue";
 
 export { StyleConfig };
@@ -36,5 +37,6 @@ export default class FluxUi {
         this.app!.component("DescribeContainer", DescribeContainer);
         this.app!.component("MsIcon", MsIcon);
         this.app!.component("TextInput", TextInput);
+        this.app!.component("MenuBarButton", MenuBarButton);
     }
 }

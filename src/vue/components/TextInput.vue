@@ -13,8 +13,7 @@
     color: @text;
     transition: 300ms;
     border: 1px solid @contrastBorder;
-    border-bottom-width: 2px    
-    ;
+    box-shadow: 0 1px 5px @contrastBorder;
 
     &:focus {
         transition: 100ms;

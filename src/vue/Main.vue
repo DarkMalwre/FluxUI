@@ -1,29 +1,5 @@
 <template>
     <div class="_root">
-        <title-bar ref="TitleBar" searchPlaceholder="Search Here" />
-
-        <describe-container description="lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet" title="Test Form">
-            <form-card title="Sign In" :inputs="[
-                {
-                    type: 'text',
-                    placeholder: 'Email Address or User Name'
-                },
-                {
-                    type: 'text',
-                    placeholder: 'Password'
-                }
-            ]" :links="[
-                {
-                    label: 'Don\'t have an account?',
-                    linkText: 'Sign Up!'
-                },
-                {
-                    linkText: 'Terms of Servive',
-                    remote: true
-                }
-            ]" />
-        </describe-container>
-
         <modal-window ref="modal">
             <describe-container description="lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet lorem ipsum dolor sit ammet" title="Test Form">
                 <form-card title="Sign In" :inputs="[
@@ -39,7 +15,12 @@
             </describe-container>
         </modal-window>
 
-        <general-button @click="showModal">Open</general-button>
+        <title-bar ref="TitleBar" searchPlaceholder="Search Here" />
+        <menu-bar>
+            <template v-slot:left>
+                <menu-bar-button @click="$refs.modal.show">Open Modal</menu-bar-button>
+            </template>
+        </menu-bar>
     </div>
 </template>
 
