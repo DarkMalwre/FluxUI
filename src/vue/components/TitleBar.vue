@@ -9,7 +9,7 @@
         </div>
 
         <div class="center">
-            <slot></slot>
+            <text-input :class="searchPlaceholder ? '' : 'hide'" />
         </div>
 
         <div class="buttons">
@@ -33,9 +33,12 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Options, Vue } from "vue-class-component";
 const { getCurrentWindow } = window.require("@electron/remote");
 
+@Options({
+    props: [ "searchPlaceholder" ]
+})
 export default class TitleBar extends Vue {
     public windowMaximized: boolean = false;
     public currentIcon = "";
@@ -98,6 +101,21 @@ export default class TitleBar extends Vue {
     align-items: center;
     flex-direction: row;
 
+    .center {
+        width: 100%;
+        margin: 0 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        input {
+            width: 100%;
+            max-width: 400px;
+            background: @layer1;
+            -webkit-app-region: no-drag;
+        }
+    }
+
     .title {
         color: @text;
         display: flex;
@@ -121,10 +139,14 @@ export default class TitleBar extends Vue {
 
         .text {
             margin-right: 15px;
+            white-space: nowrap;
         }
     }
 
     .buttons {
+        display: flex;
+        flex-direction: row;
+
         button {
             -webkit-app-region: no-drag;
             height: 40px;
