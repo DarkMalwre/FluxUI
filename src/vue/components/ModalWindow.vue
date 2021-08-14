@@ -40,10 +40,9 @@ export default class ModalWindow extends Vue {
 
 .root {
     position: fixed;
-    top: 30px;
     left: 0;
     width: 100vw;
-    height: calc(100vh - 30px);
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,7 +57,6 @@ export default class ModalWindow extends Vue {
         height: 100%;
         transition: 300ms;
         opacity: 0;
-        -webkit-backdrop-filter: blur(5px);
     }
 
     .window {
@@ -68,8 +66,8 @@ export default class ModalWindow extends Vue {
         background: @layer1;
         position: absolute;
         transition: 300ms;
-        border-radius: 3px;
-        transform: translate(0px, -100px);
+        border-radius: 6px;
+        transform: scale(0.9);
         opacity: 0;
     }
 
@@ -78,11 +76,12 @@ export default class ModalWindow extends Vue {
 
         .window {
             opacity: 1;
-            transform: translate(0px, 0px);
+            transform: scale(1);
+            transition: 100ms;
         }
 
         .background {
-            opacity: 0.3;
+            opacity: 0.5;
         }
     }
 }

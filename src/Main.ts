@@ -1,3 +1,3 @@
-import { gui } from "axeri-ember";
+import { gui } from "@axeridev/ember";
 
 gui.create();

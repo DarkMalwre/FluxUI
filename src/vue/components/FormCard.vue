@@ -10,7 +10,7 @@
             <label v-for="input in inputs">
                 <div :class="'error ' + (input.error ? '' : 'hide')">{{ input.error }}</div>
 
-                <input :autofocus="input.autoFocus ? true : false" :value="input.value" :placeholder="input.placeholder"
+                <text-input :autofocus="input.autoFocus ? true : false" :value="input.value" :placeholder="input.placeholder"
                     :class="'text ' + (input.error ? 'has-error' : '')" 
                     type="text" v-if="input.type == 'text'" 
                 />
@@ -36,7 +36,9 @@ import { Vue, Options } from "vue-class-component";
 @Options({
   props: [ "title", "inputs", "links" ],
 })
-export default class FormCard extends Vue {}
+export default class FormCard extends Vue {
+
+}
 </script>
 
 <style lang="less" scoped>
@@ -99,22 +101,6 @@ export default class FormCard extends Vue {}
                     height: 0;
                 }
             }
-
-            .text {
-                border: none;
-                border-bottom: 2px solid @medium;
-                background: @layer2;
-                padding: 8px;
-                border-radius: 3px;
-
-                &:focus {
-                    border-color: @accent;
-                }
-
-                &.has-error {
-                    border-color: @error;
-                }
-            }
         }
     }
 
@@ -125,6 +111,7 @@ export default class FormCard extends Vue {}
 
         button {
             max-width: 40px;
+            color: @layer1;
         }
     }
 }

@@ -17,21 +17,6 @@ body {
     background: @layer1;
 }
 
-* {
-    --level: rgb(0, 0, 0);
-    --layer0: rgb(27, 27, 27);
-    --layer1: rgb(32, 32, 32);
-    --layer2: rgb(43, 43, 43);
-    --layer3: rgb(55, 55, 55);
-    --text: rgb(255, 255, 255);
-    --textDim: rgb(170, 170, 170);
-    --medium: rgb(80, 80, 80);
-    --accent: #60cdff;
-    --destructive: rgb(255, 100, 100);
-    --error: rgb(255, 150, 150);
-    --warning: rgb(255, 255, 100);
-}
-
 @level: var(--level);
 @layer0: var(--layer0);
 @layer1: var(--layer1);
@@ -44,5 +29,6 @@ body {
 @destructive: var(--destructive);
 @error: var(--error);
 @warning: var(--warning);
+@contrastBorder: var(--contrastBorder);
 
 @mainFont: "SegoeUI Variable", sans-serif;

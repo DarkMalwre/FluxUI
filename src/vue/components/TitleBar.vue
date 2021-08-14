@@ -1,11 +1,15 @@
 <template>
     <div class="root">
         <div class="title">
-            <div class="icon">
-                <i class="ms-Icon ms-Icon--Game"></i>
+            <div class="icon" v-if="currentIcon">
+                <img :src="currentIcon" />
             </div>
 
-            <span class="text">Test Application</span>
+            <span class="text">{{ currentTitle }}</span>
+        </div>
+
+        <div class="center">
+            <text-input :class="searchPlaceholder ? '' : 'hide'" />
         </div>
 
         <div class="buttons">
@@ -29,11 +33,33 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Options, Vue } from "vue-class-component";
 const { getCurrentWindow } = window.require("@electron/remote");
 
+@Options({
+    props: [ "searchPlaceholder" ]
+})
 export default class TitleBar extends Vue {
     public windowMaximized: boolean = false;
+    public currentIcon = "";
+    public currentTitle = "Waiting For App Title";
+
+    public get title() {
+        return this.currentTitle;
+    }
+
+    public set title(title: string) {
+        this.currentTitle = title;
+        document.title = title;
+    }
+
+    public get icon() {
+        return this.currentIcon;
+    }
+
+    public set icon(path: string) {
+        this.currentIcon = path;
+    }
 
     public created() {
         const window = getCurrentWindow();
@@ -67,13 +93,28 @@ export default class TitleBar extends Vue {
 
 .root {
     width: 100%;
-    height: 30px;
+    height: 40px;
     -webkit-app-region: drag;
     background: @layer0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+
+    .center {
+        width: 100%;
+        margin: 0 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        input {
+            width: 100%;
+            max-width: 400px;
+            background: @layer1;
+            -webkit-app-region: no-drag;
+        }
+    }
 
     .title {
         color: @text;
@@ -86,18 +127,30 @@ export default class TitleBar extends Vue {
 
         .icon {
             margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            img {
+                height: 15px;
+                width: 15px;
+            }
         }
 
         .text {
             margin-right: 15px;
+            white-space: nowrap;
         }
     }
 
     .buttons {
+        display: flex;
+        flex-direction: row;
+
         button {
             -webkit-app-region: no-drag;
-            height: 30px;
-            padding: 0 18px;
+            height: 40px;
+            padding: 0 10px;
             border: none;
             color: @text;
             background: transparent;
@@ -107,6 +160,10 @@ export default class TitleBar extends Vue {
             &:hover {
                 background: @layer1;
                 transition: 100ms;
+
+                &.close {
+                    background: @destructive;
+                }
             }
 
             .ms-Icon {
